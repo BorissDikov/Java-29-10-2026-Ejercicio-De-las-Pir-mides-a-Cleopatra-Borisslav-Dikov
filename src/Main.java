@@ -28,28 +28,35 @@ public class Main {
 
         int T = Integer.parseInt(s.trim());
         for (int i = 0; i < T; i++) {
-            String line;
-            while ((line = br.readLine()) != null && line.trim().isEmpty() ){
-                StringTokenizer st = new StringTokenizer(line);
-                int A = Integer.parseInt(st.nextToken());
-                int B = Integer.parseInt(st.nextToken());
-                int C = Integer.parseInt(st.nextToken());
-                int dtA = distancia(A,B);
-                int dtC = distancia(C,B);
-                if(dtA < dtC ){
-                    out.print(A);
-                }else if (dtC > dtA){
-                     out.print(C);
-                }else {
-                    out.print("Empate");
-                }
-                out.flush();
-
-
-
-
+            String line = br.readLine();
+            while (line != null && line.trim().isEmpty()){
+                line = br.readLine();
             }
-            
+
+            if (line == null) {
+                break;
+            }
+
+            StringTokenizer st = new StringTokenizer(line);
+            int A = Integer.parseInt(st.nextToken());
+            int B = Integer.parseInt(st.nextToken());
+            int C = Integer.parseInt(st.nextToken());
+            int dtA = distancia(A,B);
+            int dtC = distancia(C,B);
+            if(dtA < dtC ){
+                    out.print(A);
+            }else if (dtC < dtA){
+                    out.print(C);
+            }else {
+                out.print("Empate");
+            }
+            out.flush();
+
+
+
+
+
+
         }
 
 
